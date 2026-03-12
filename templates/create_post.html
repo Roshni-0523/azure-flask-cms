@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Post</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>Azure CMS</h2>
+    <a href="/">Home</a>
+    <a href="/create">Create Post</a>
+    <a href="/dashboard">Dashboard</a>
+</div>
+
+<div class="container">
+
+    <h1>Create Post</h1>
+
+    <form method="POST" onsubmit="return validateForm()">
+
+        <label>Title</label>
+        <input type="text" id="title" name="title" placeholder="Enter post title">
+
+        <label>Author</label>
+        <input type="text" id="author" name="author" placeholder="Enter author name">
+
+        <label>Content</label>
+        <textarea name="content" rows="6" placeholder="Write your article here..."></textarea>
+
+        <button type="submit" onclick="showAlert()">Publish</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

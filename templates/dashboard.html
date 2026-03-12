@@ -1,0 +1,11 @@
+<h1>CMS Dashboard</h1>
+
+<a href="/create">Create Post</a>
+
+{% for post in posts %}
+
+<h2>{{post.title}}</h2>
+<p>{{post.body}}</p>
+<hr>
+
+{% endfor %}
