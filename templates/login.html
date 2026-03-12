@@ -1,7 +1,38 @@
-<h2>Login</h2>
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Login</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>Azure CMS</h2>
+    <a href="/">Home</a>
+    <a href="/create">Create Post</a>
+    <a href="/dashboard">Dashboard</a>
+</div>
+
+<div class="container">
+
+<h1>Login</h1>
 
 <form method="POST">
-<input name="username" placeholder="Username"><br>
-<input name="password" placeholder="Password"><br>
+
+<label>Username</label>
+<input name="username" placeholder="Enter username">
+
+<label>Password</label>
+<input type="password" name="password" placeholder="Enter password">
+
 <button type="submit">Login</button>
+
 </form>
+
+</div>
+
+</body>
+
+</html>

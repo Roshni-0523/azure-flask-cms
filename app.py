@@ -16,10 +16,7 @@ conn = pyodbc.connect(
 
 @app.route('/')
 def home():
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM posts")
-    posts = cursor.fetchall()
-    return render_template("dashboard.html", posts=posts)
+    return render_template("home.html")
 
 
 @app.route('/login', methods=["GET","POST"])
