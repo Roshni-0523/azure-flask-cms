@@ -1,30 +1,31 @@
 from flask import Flask, render_template, request, redirect, session
 import pyodbc
 import os
+import logging
 
 app = Flask(__name__)
 app.secret_key = "secret"
 
-# Azure SQL credentials from environment variables
+# Enable logging
+logging.basicConfig(level=logging.INFO)
+
+# Azure SQL connection info from environment variables
 server = os.environ.get("DB_SERVER")
 database = os.environ.get("DB_NAME")
 username = os.environ.get("DB_USER")
 password = os.environ.get("DB_PASSWORD")
 
-# Database connection
 conn = pyodbc.connect(
     f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}'
 )
 
-# ---------------- HOME PAGE ----------------
-
+# ---------------- HOME ----------------
 @app.route('/')
 def home():
     return render_template("home.html")
 
 
 # ---------------- LOGIN ----------------
-
 @app.route('/login', methods=["GET", "POST"])
 def login():
 
@@ -43,18 +44,20 @@ def login():
         result = cursor.fetchone()
 
         if result:
+            logging.info(f"{user} logged in successfully")
             session['user'] = user
             return redirect("/dashboard")
+
+        else:
+            logging.warning("Invalid login attempt")
 
     return render_template("login.html")
 
 
 # ---------------- CREATE POST ----------------
-
 @app.route('/create', methods=["GET", "POST"])
 def create():
 
-    # Require login
     if 'user' not in session:
         return redirect("/login")
 
@@ -79,11 +82,9 @@ def create():
 
 
 # ---------------- DASHBOARD ----------------
-
 @app.route('/dashboard')
 def dashboard():
 
-    # Require login
     if 'user' not in session:
         return redirect("/login")
 
@@ -97,7 +98,6 @@ def dashboard():
 
 
 # ---------------- LOGOUT ----------------
-
 @app.route('/logout')
 def logout():
 
@@ -107,6 +107,5 @@ def logout():
 
 
 # ---------------- RUN APP ----------------
-
 if __name__ == "__main__":
     app.run()
