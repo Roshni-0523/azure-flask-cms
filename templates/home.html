@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Home</title>
+    <title>Azure CMS</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
@@ -10,28 +10,57 @@
 
 <div class="navbar">
     <h2>Azure CMS</h2>
+
     <a href="/">Home</a>
-    <a href="/create">Create Post</a>
     <a href="/dashboard">Dashboard</a>
+    <a href="/create">Create Post</a>
     <a href="/login">Login</a>
+    <a href="/logout">Logout</a>
 </div>
 
 <div class="container">
 
 <h1>Welcome to Azure CMS</h1>
 
-<p>This is a cloud-based Content Management System built using:</p>
+<p style="font-size:18px;">
+A simple cloud-based Content Management System built with modern cloud technologies.
+</p>
+
+<br>
+
+<h2>Technologies Used</h2>
 
 <ul>
-<li>Flask (Python)</li>
-<li>Azure Web App</li>
+<li>Flask (Python Backend)</li>
+<li>Microsoft Azure Web App</li>
 <li>Azure SQL Database</li>
-<li>GitHub Deployment</li>
+<li>GitHub Continuous Deployment</li>
 </ul>
 
-<p>Use the navigation bar to create and manage posts.</p>
+<br>
+
+<h2>Features</h2>
+
+<ul>
+<li>User authentication system</li>
+<li>Create and manage blog posts</li>
+<li>Dashboard to view all content</li>
+<li>Cloud hosted on Azure</li>
+<li>Integrated with GitHub for deployment</li>
+</ul>
+
+<br>
+
+<a href="/create">
+<button>Create Your First Post</button>
+</a>
 
 </div>
 
+<footer style="text-align:center; margin-top:40px; padding:20px; color:#666;">
+    <p>Azure CMS | Developed by <b>Roshni Rai</b></p>
+</footer>
+
 </body>
+
 </html>

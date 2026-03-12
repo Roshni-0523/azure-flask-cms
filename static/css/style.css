@@ -59,3 +59,21 @@ button:hover{
 .navbar a:hover{
     text-decoration:underline;
 }
+
+.post-card{
+    background:white;
+    padding:20px;
+    margin:20px 0;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.post-title{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.post-author{
+    color:#666;
+    font-size:14px;
+}
