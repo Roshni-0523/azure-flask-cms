@@ -48,7 +48,7 @@ def create():
     if request.method == "POST":
         title = request.form['title']
         author = request.form['author']
-        body = request.form['content']   # matches your HTML textarea
+        body = request.form['content']   # must match textarea name
 
         cursor = conn.cursor()
         cursor.execute(
