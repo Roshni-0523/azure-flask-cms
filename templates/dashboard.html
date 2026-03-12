@@ -1,11 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>Azure CMS</h2>
+    <a href="/">Home</a>
+    <a href="/create">Create Post</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/login">Login</a>
+</div>
+
+<div class="container">
+
 <h1>CMS Dashboard</h1>
 
 <a href="/create">Create Post</a>
 
 {% for post in posts %}
 
-<h2>{{post.title}}</h2>
-<p>{{post.body}}</p>
 <hr>
 
+<h2>{{post.title}}</h2>
+<p><b>Author:</b> {{post.author}}</p>
+<p>{{post.body}}</p>
+
 {% endfor %}
+
+</div>
+
+</body>
+
+</html>
